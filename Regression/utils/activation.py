@@ -17,7 +17,7 @@ def linear(z):
     return z
 
 def dlinear(z):
-    return 1
+    return np.ones(z.shape)
 
 def get_activation(activation, diff = False):
     if activation == 'relu':
