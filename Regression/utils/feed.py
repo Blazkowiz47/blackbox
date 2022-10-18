@@ -2,13 +2,19 @@ import numpy as np
 from utils.activation  import get_activation
 
 
-def feed_forward(x, w,b, activation=None):
+def feed_forward(x, w, b, activation="linear"):
+    '''
+    x : Represents the input from the previous layer, Shape of x: (number_of_data_points, number_of_features),
+    w : Weights of current layer, Shape of w: (number_of_features, output_features),
+    b : Bais of current layer, Shape of b: (1, number_of_features).
+    activation : tells the type of activation layer one requires with layer, default is linear.
+    '''
     z = x@w + b
     a = get_activation(activation)(z)
     return z,a
 
 
-def back_prop(a_prev, w, z, da_next, activation=None):
+def back_prop(a_prev, w, z, da_next, activation="linear"):
     dz = da_next * get_activation(activation,diff=True)(z)
     dw = a_prev.T @ dz
     db = dz.sum(axis = 0)
