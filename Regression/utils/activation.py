@@ -19,11 +19,14 @@ def linear(z):
 def dlinear(z):
     return np.ones(z.shape)
 
-def get_activation(activation, diff = False):
+def get_activation(activation:str, diff = False):
+    activation = activation.lower()
     if activation == 'relu':
         return drelu if diff else relu 
     elif activation == 'sigmoid':
         return dsigmoid if diff else sigmoid
-    else:
+    elif activation == 'linear':
         return dlinear if diff else linear
+    else: 
+        raise NotImplementedError()
 
