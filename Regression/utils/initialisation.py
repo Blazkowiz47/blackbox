@@ -7,4 +7,4 @@ def __initialiser__(initialiser, shape):
     if initialiser == 'zero':
         return np.zeros(shape)
     else:
-        return np.random.rand(*shape)  
+        return np.random.rand(*shape)

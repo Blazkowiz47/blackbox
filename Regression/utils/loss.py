@@ -1,7 +1,10 @@
 import numpy as np
 
-def msme(yt,yp):
-    return ((yt-yp).square().sum())
+def mse(yt,yp):
+    '''
+    Mean Squared Error
+    '''
+    return ((yt-yp).square().mean())
 
 def categorical_entropy(yt,yp):
     m = yt.shape[0]
@@ -13,7 +16,7 @@ def get_loss(loss):
     if loss == 'categorical_entropy':
         return categorical_entropy
     elif loss == 'msme':
-        return msme
+        return mse
     else:
         print("Invalid loss function")
         raise NotImplementedError()
