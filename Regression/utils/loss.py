@@ -20,3 +20,4 @@ def get_loss(loss):
     else:
         print("Invalid loss function")
         raise NotImplementedError()
+        

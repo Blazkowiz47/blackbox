@@ -57,19 +57,19 @@ def drelu(a):
     '''
     return (a > 0) * 1
 
-def dlinear(z):
+def dlinear(a):
     '''
     Differntiation of Linear Function
     As been said that there is no acitvation like linear activation, the differentiation of this layer is one only.
     '''
-    return np.ones(z.shape)
+    return np.ones(a.shape)
 
-def dtanh(z):
+def dtanh(a):
     '''
     Differentiation of TanH Function
     https://blogs.cuit.columbia.edu/zp2130/derivative_of_tanh_function/
     '''
-    return 1 - tanh(z)**2
+    return 1 - a**2
 
 
 def get_activation(activation:str, diff = False):
